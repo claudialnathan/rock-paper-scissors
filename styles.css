@@ -237,3 +237,9 @@ button:hover {
 :focus {
   scroll-padding-block-end: 8vh;
 }
+
+@media only screen and (max-width: 29rem) {
+  .scores-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
