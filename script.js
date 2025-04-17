@@ -10,6 +10,11 @@ tippy("#tippyscissors", {
   content: "scissors",
 });
 
+//color mode
+const colorBtn = document.querySelector(".switch");
+const lightBtn = document.getElementById("sun");
+const darkBtn = document.getElementById("moon");
+
 const alertModal = document.querySelector(".alert-wrapper");
 const alertText = document.querySelector(".alertText");
 const restartBtn = document.querySelector(".restart");
@@ -81,3 +86,27 @@ restartBtn.addEventListener("click", () => {
 humanRock.addEventListener("click", () => handleClick("rock"));
 humanPaper.addEventListener("click", () => handleClick("paper"));
 humanScissors.addEventListener("click", () => handleClick("scissors"));
+
+document.addEventListener("DOMContentLoaded", () => {
+  const lightBtn = document.getElementById("sun");
+  const darkBtn = document.getElementById("moon");
+  const body = document.body;
+
+  body.style.setProperty("color-scheme", "dark");
+
+  lightBtn.addEventListener("click", () => {
+    if (!lightBtn.classList.contains("active")) {
+      lightBtn.classList.add("active");
+      darkBtn.classList.remove("active");
+      body.style.setProperty("color-scheme", "light");
+    }
+  });
+
+  darkBtn.addEventListener("click", () => {
+    if (!darkBtn.classList.contains("active")) {
+      darkBtn.classList.add("active");
+      lightBtn.classList.remove("active");
+      body.style.setProperty("color-scheme", "dark");
+    }
+  });
+});

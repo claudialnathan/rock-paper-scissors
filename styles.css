@@ -1,3 +1,26 @@
+:root {
+  color-scheme: light dark;
+  --bg: light-dark(#fdfdfd, #191a1c);
+  --s1: light-dark(white, #1d1e20);
+  --s1-border: light-dark(#ebebeb, #313336);
+  --s2: light-dark(#f9f9fb, #27282a);
+  --s2-border: light-dark(#e2e4e9, #34373d);
+  --font-main: light-dark(#171420, white);
+  --font-mid: light-dark(#787887, #cccfd6);
+  --font-subtle: light-dark(#98a1ae, #a3a4a9);
+  --font-contrast: light-dark(white, #191a1c);
+  --btn-bg: light-dark(white, #1d1e20);
+  --btn-border: light-dark(#ebebeb, #313336);
+  --btn-text: light-dark(#171420, white);
+  --btn-hover: light-dark(white, #252629);
+  --links: light-dark(#0052ff, #9fb8ff);
+  --alert-bg: light-dark(rgba(37, 38, 41, 0.05), rgba(255, 255, 255, 0.08));
+  --restart-bg: light-dark(#d0fc95, #1d1e20);
+  --restart-text: light-dark(#171420, white);
+  --lime: #d0fc95;
+  --blue: #0000ff;
+}
+
 *,
 *:before,
 *:after {
@@ -8,17 +31,12 @@
 html {
   scroll-behavior: smooth;
   scrollbar-gutter: stable;
-  accent-color: #0052ff;
-  caret-color: #0052ff;
-  scrollbar-color: #1d1e20 #2c2e32;
+  accent-color: var(--links);
+  caret-color: var(--links);
+  scrollbar-color: var(--s1) var(--s1-border);
   scrollbar-width: thin;
   -webkit-font-smoothing: antialiased;
   text-size-adjust: none;
-}
-
-/* smooth scroll experience for tabbing through site */
-html:focus-within {
-  scroll-behavior: smooth;
 }
 
 button {
@@ -40,13 +58,15 @@ body {
   text-size-adjust: 0.5;
   -webkit-text-size-adjust: none;
   touch-action: manipulation;
-  background: #191a1c;
-  color: white;
+  background: var(--bg);
+  color: var(--font-main);
 }
 
 .page-wrapper {
-  display: grid;
-  place-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   width: 100vw;
   height: 100dvh;
@@ -70,17 +90,16 @@ body {
   aspect-ratio: 1;
   display: grid;
   place-content: center;
-  background-color: #1d1e20;
-  border: 1px solid #313336;
+  background-color: var(--btn-bg);
+  border: 1px solid var(--btn-border);
   font-size: 2.5rem;
   border-radius: 1rem;
-  color: white;
+  color: var(--btn-text);
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #252629;
-  border: 1px solid #2c2e32;
+  background-color: var(--btn-hover);
 }
 
 .play-wrapper {
@@ -136,7 +155,7 @@ button:hover {
 }
 
 .alert-card {
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--alert-bg);
   backdrop-filter: blur(16px);
   border-radius: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.24);
@@ -160,12 +179,47 @@ button:hover {
 
 .restart {
   height: 36px;
-  padding-inline-start: 12px;
-  padding-inline-end: 12px;
+  padding-inline: 12px;
   font-size: 0.875rem;
   background-color: #1d1e20;
   max-width: fit-content;
   border-radius: 10px;
+  background-color: var(--restart-bg);
+  color: var(--restart-text);
+}
+
+.restart:hover {
+  background-color: var(--restart-bg);
+  color: var(--restart-text);
+}
+
+.light-dark {
+  max-width: fit-content;
+  padding-block: 2px;
+  padding-inline: 4px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--s1);
+  border: 1px solid var(--s1-border);
+  border-radius: 1em;
+}
+
+.switch {
+  height: 30px;
+  padding-inline: 10px;
+  display: grid;
+  place-content: center;
+  border-radius: 1em;
+}
+
+.switch.active {
+  background-color: var(--btn-hover);
+  border: 1px solid var(--btn-border);
+}
+
+.switch svg {
+  width: 15px;
+  aspect-ratio: 1;
 }
 
 ::selection {
