@@ -304,11 +304,13 @@ button:hover {
   scroll-padding-block-end: 8vh;
 }
 
-@media only screen and (max-width: 500px) {
-  .cards-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+@media only screen and (max-width: 360px) {
+  .scores-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .play-wrapper button {
+    width: 5rem;
+    font-size: 2rem;
   }
 }
