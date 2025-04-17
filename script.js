@@ -1,15 +1,3 @@
-tippy("#tippyrock", {
-  content: "rock",
-});
-
-tippy("#tippypaper", {
-  content: "paper",
-});
-
-tippy("#tippyscissors", {
-  content: "scissors",
-});
-
 //color mode
 const colorBtn = document.querySelector(".switch");
 const lightBtn = document.getElementById("sun");
@@ -87,6 +75,7 @@ humanRock.addEventListener("click", () => handleClick("rock"));
 humanPaper.addEventListener("click", () => handleClick("paper"));
 humanScissors.addEventListener("click", () => handleClick("scissors"));
 
+// color mode switcher
 document.addEventListener("DOMContentLoaded", () => {
   const lightBtn = document.getElementById("sun");
   const darkBtn = document.getElementById("moon");
@@ -110,3 +99,38 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// tippy js
+let isUsingTouch = false;
+
+const touchHandler = () => {
+  isUsingTouch = true;
+  document.removeEventListener("mousemove", mousemoveHandler);
+};
+
+const mousemoveHandler = (() => {
+  let lastTime;
+  return () => {
+    const now = performance.now();
+    if (now - lastTime < 20) {
+      isUsingTouch = false;
+      document.removeEventListener("mousemove", mousemoveHandler);
+    }
+    lastTime = now;
+  };
+})();
+
+document.addEventListener("touchstart", touchHandler);
+document.addEventListener("mousemove", mousemoveHandler);
+
+if (!isUsingTouch) {
+  tippy("#tippyrock", {
+    content: "rock",
+  });
+  tippy("#tippypaper", {
+    content: "paper",
+  });
+  tippy("#tippyscissors", {
+    content: "scissors",
+  });
+}
