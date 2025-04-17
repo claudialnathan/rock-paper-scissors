@@ -238,8 +238,11 @@ button:hover {
   scroll-padding-block-end: 8vh;
 }
 
-@media only screen and (max-width: 29rem) {
+@media only screen and (max-width: 410px) {
   .scores-wrapper {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
