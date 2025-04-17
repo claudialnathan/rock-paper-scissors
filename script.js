@@ -61,13 +61,14 @@ function playRound(humanChoice, computerChoice) {
 
 //isolated game context, stores human choices and computer choices for the duration of games being less than 6, only increments game number inside function so it can reset to 0 once done.
 function handleClick(choice) {
-  if (gameNumber >= 6) return;
+  if (gameNumber >= 5) return;
   const computerChoice = getComputerChoice();
   humanChoiceIcon.textContent = emojiMap[choice];
   botChoiceIcon.textContent = emojiMap[computerChoice];
   playRound(choice, computerChoice);
   gameNumber++;
-  if (gameNumber >= 6) {
+  roundNumber.textContent = `${gameNumber}`;
+  if (gameNumber === 5) {
     alertModal.classList.toggle("hidden");
     alertText.textContent = `Final Score - Human: ${humanScore} Computer: ${computerScore}`;
   }
@@ -80,6 +81,7 @@ restartBtn.addEventListener("click", () => {
   computerScore = 0;
   humanChoiceIcon.textContent = "🤔";
   botChoiceIcon.textContent = "🤖";
+  roundNumber.textContent = "0";
   humanScoreText.textContent = `${humanScore}`;
   compScoreText.textContent = `${computerScore}`;
 });
