@@ -18,6 +18,17 @@ const compScissors = document.getElementById("compscissors");
 const humanScoreText = document.getElementById("humanscore");
 const compScoreText = document.getElementById("computerscore");
 
+//rounds
+const roundNumber = document.getElementById("roundnumber");
+const humanChoiceIcon = document.getElementById("yourChoice");
+const botChoiceIcon = document.getElementById("botChoice");
+
+const emojiMap = {
+  rock: "🤛",
+  paper: "🤚",
+  scissors: "✌️",
+};
+
 let gameNumber = 0;
 let humanScore = 0;
 let computerScore = 0;
@@ -44,8 +55,6 @@ function playRound(humanChoice, computerChoice) {
     console.log("Human wins!");
     humanScore++;
   }
-  console.log(`You chose ${humanChoice}, computer chose ${computerChoice}`);
-  console.log("Human:", humanScore, "Computer:", computerScore);
   humanScoreText.textContent = `${humanScore}`;
   compScoreText.textContent = `${computerScore}`;
 }
@@ -54,6 +63,8 @@ function playRound(humanChoice, computerChoice) {
 function handleClick(choice) {
   if (gameNumber >= 6) return;
   const computerChoice = getComputerChoice();
+  humanChoiceIcon.textContent = emojiMap[choice];
+  botChoiceIcon.textContent = emojiMap[computerChoice];
   playRound(choice, computerChoice);
   gameNumber++;
   if (gameNumber >= 6) {
@@ -67,6 +78,8 @@ restartBtn.addEventListener("click", () => {
   gameNumber = 0;
   humanScore = 0;
   computerScore = 0;
+  humanChoiceIcon.textContent = "🤔";
+  botChoiceIcon.textContent = "🤖";
   humanScoreText.textContent = `${humanScore}`;
   compScoreText.textContent = `${computerScore}`;
 });

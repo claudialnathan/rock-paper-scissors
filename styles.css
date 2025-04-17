@@ -135,9 +135,68 @@ button:hover {
 }
 
 .scores-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 1.5rem;
+}
+
+.rounds-container {
+  background-color: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  width: fit-content;
+  border-radius: 12px;
+  overflow: clip;
+  min-width: 10rem;
+}
+
+.round-choice {
+  display: flex;
+  gap: 3px;
+}
+
+.score-container {
+  background-color: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  width: 8.5rem;
+  border-radius: 12px;
+  overflow: clip;
+}
+
+.score-top {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--btn-border);
+}
+
+.score-bottom {
+  padding-block: 10px;
+  padding-inline: 8px;
+  display: grid;
+  place-content: center;
+  width: 100%;
+}
+
+.rounds-inner {
+  display: flex;
+  gap: 1rem;
+  padding-block: 3px;
+  padding-inline: 4px;
+}
+
+.round-choice {
+  display: flex;
+  gap: 2px;
+}
+
+#yourChoice,
+#botChoice {
+  margin-inline-start: 4px;
 }
 
 .alert-wrapper {

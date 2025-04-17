@@ -76,8 +76,25 @@
         </div>
       </div>
       <div class="scores-wrapper">
-        <div>Your score: <span id="humanscore">0</span></div>
-        <div>Computer score: <span id="computerscore">0</span></div>
+        <div class="score-container">
+          <div class="score-top">YOUR SCORE</div>
+          <div class="score-bottom"><span id="humanscore">0</span></div>
+        </div>
+        <div class="rounds-container">
+          <div class="score-top">ROUND <span id="roundnumber">1</span></div>
+          <div class="score-bottom">
+            <div class="rounds-inner">
+              <div class="round-choice">
+                you <span id="yourChoice">🤔</span>
+              </div>
+              <div class="round-choice">bot <span id="botChoice">🤖</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="score-container">
+          <div class="score-top">BOT SCORE</div>
+          <div class="score-bottom"><span id="computerscore">0</span></div>
+        </div>
       </div>
     </div>
     <!-- tippy.js -->
