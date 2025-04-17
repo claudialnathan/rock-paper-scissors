@@ -100,37 +100,25 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// tippy js
 let isUsingTouch = false;
 
-const touchHandler = () => {
-  isUsingTouch = true;
-  document.removeEventListener("mousemove", mousemoveHandler);
+const initTippy = () => {
+  tippy("#tippyrock", { content: "rock" });
+  tippy("#tippypaper", { content: "paper" });
+  tippy("#tippyscissors", { content: "scissors" });
 };
 
-const mousemoveHandler = (() => {
-  let lastTime;
-  return () => {
-    const now = performance.now();
-    if (now - lastTime < 20) {
-      isUsingTouch = false;
-      document.removeEventListener("mousemove", mousemoveHandler);
-    }
-    lastTime = now;
-  };
-})();
+const detectInput = (e) => {
+  if (e.type === "touchstart") {
+    isUsingTouch = true;
+  } else {
+    isUsingTouch = false;
+    initTippy();
+  }
 
-document.addEventListener("touchstart", touchHandler);
-document.addEventListener("mousemove", mousemoveHandler);
+  document.removeEventListener("touchstart", detectInput);
+  document.removeEventListener("mousemove", detectInput);
+};
 
-if (!isUsingTouch) {
-  tippy("#tippyrock", {
-    content: "rock",
-  });
-  tippy("#tippypaper", {
-    content: "paper",
-  });
-  tippy("#tippyscissors", {
-    content: "scissors",
-  });
-}
+document.addEventListener("touchstart", detectInput, { passive: true });
+document.addEventListener("mousemove", detectInput);
