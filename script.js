@@ -3,9 +3,11 @@ const colorBtn = document.querySelector(".switch");
 const lightBtn = document.getElementById("sun");
 const darkBtn = document.getElementById("moon");
 
+//alert modal
 const alertModal = document.querySelector(".alert-wrapper");
 const alertText = document.querySelector(".alertText");
 const restartBtn = document.querySelector(".restart");
+const gameStateText = document.querySelector(".game-state");
 //human buttons
 const humanRock = document.querySelector(".rock");
 const humanPaper = document.querySelector(".paper");
@@ -70,6 +72,14 @@ function handleClick(choice) {
   roundNumber.textContent = `${gameNumber}`;
   if (gameNumber === 5) {
     alertModal.classList.toggle("hidden");
+
+    if (humanScore > computerScore) {
+      gameStateText.textContent = "You won!";
+    } else if (humanScore < computerScore) {
+      gameStateText.textContent = "Better luck next time";
+    } else {
+      gameStateText.textContent = "It's a tie!";
+    }
     alertText.textContent = `Final Score - Human: ${humanScore} Computer: ${computerScore}`;
   }
 }

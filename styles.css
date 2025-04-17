@@ -134,10 +134,17 @@ button:hover {
   color: #252629 !important;
 }
 
-.scores-wrapper {
+.cards-wrapper {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1.5rem;
+}
+
+.scores-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
 }
 
@@ -298,7 +305,7 @@ button:hover {
 }
 
 @media only screen and (max-width: 500px) {
-  .scores-wrapper {
+  .cards-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
