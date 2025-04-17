@@ -1,0 +1,185 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  accent-color: #0052ff;
+  caret-color: #0052ff;
+  scrollbar-color: #1d1e20 #2c2e32;
+  scrollbar-width: thin;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: none;
+}
+
+/* smooth scroll experience for tabbing through site */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+button {
+  background-color: unset;
+  padding: unset;
+  text-align: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+  border: unset;
+  cursor: pointer;
+}
+
+body {
+  font-family: "Commit Mono", monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
+  text-size-adjust: 0.5;
+  -webkit-text-size-adjust: none;
+  touch-action: manipulation;
+  background: #191a1c;
+  color: white;
+}
+
+.page-wrapper {
+  display: grid;
+  place-content: center;
+  position: fixed;
+  width: 100vw;
+  height: 100dvh;
+  font-family: inherit;
+  gap: 4rem;
+}
+
+.welcome {
+  text-align: center;
+}
+
+.game-btns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  place-content: center;
+}
+
+.play-wrapper button {
+  width: 6rem;
+  aspect-ratio: 1;
+  display: grid;
+  place-content: center;
+  background-color: #1d1e20;
+  border: 1px solid #313336;
+  font-size: 2.5rem;
+  border-radius: 1rem;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #252629;
+  border: 1px solid #2c2e32;
+}
+
+.play-wrapper {
+  display: grid;
+  width: 100%;
+  place-content: center;
+  gap: 1.5rem;
+}
+
+.computer-btns {
+  width: 100%;
+  display: grid;
+  place-content: center;
+  gap: 1rem;
+}
+
+.computer-btns button {
+  width: 2rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+}
+
+.tippy-box {
+  background-color: #252629 !important;
+  color: white;
+  border: 1px solid #2c2e32;
+  font-family: "Commit Mono", monospace;
+  font-size: 0.85rem;
+}
+
+.tippy-arrow::before {
+  color: #252629 !important;
+}
+
+.scores-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.alert-wrapper {
+  position: absolute;
+  z-index: 10;
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  display: grid;
+  place-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.alert-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  min-width: 30vw;
+  min-height: 30dvh;
+}
+
+.game-state {
+  font-size: 1.5rem;
+}
+
+.alertText {
+  font-size: 0.875rem;
+}
+
+.restart {
+  height: 36px;
+  padding-inline-start: 12px;
+  padding-inline-end: 12px;
+  font-size: 0.875rem;
+  background-color: #1d1e20;
+  max-width: fit-content;
+  border-radius: 10px;
+}
+
+::selection {
+  background: #d6fca6;
+  color: #171420;
+}
+
+/* Scroll margin allowance above anchor links */
+:target {
+  scroll-padding-block-start: 2rem;
+}
+
+/* Scroll margin allowance below focused elements 
+  to ensure they are clearly in view */
+:focus {
+  scroll-padding-block-end: 8vh;
+}

@@ -3,11 +3,54 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fontsource/commit-mono@latest/index.min.css"
+    />
     <link rel="stylesheet" href="styles.css" />
     <title>Your Page Title</title>
   </head>
   <body>
-    <!-- Your content goes here -->
+    <div class="page-wrapper">
+      <div class="alert-wrapper hidden">
+        <div class="alert-card">
+          <span class="game-state">Game Over!</span>
+          <span class="alertText">Text</span>
+          <button class="restart">Play Again</button>
+        </div>
+      </div>
+      <div class="welcome">Choose your hand</div>
+      <div class="play-wrapper">
+        <div class="game-btns">
+          <div class="btn-wrap" id="tippyrock">
+            <button class="rock" id="rock">🤛</button>
+          </div>
+          <div class="btn-wrap" id="tippypaper">
+            <button class="paper" id="paper">✋</button>
+          </div>
+          <div class="btn-wrap" id="tippyscissors">
+            <button class="scissors" id="scissors">✌️</button>
+          </div>
+        </div>
+        <!--
+        <div class="computer-btns">
+          <div class="game-btns">
+            <button id="comprock">🤛</button>
+            <button id="comppaper">✋</button>
+            <button id="compscissors">✌️</button>
+          </div>
+        </div>
+        -->
+      </div>
+      <div class="scores-wrapper">
+        <div>Your score: <span id="humanscore">0</span></div>
+        <div>Computer score: <span id="computerscore">0</span></div>
+      </div>
+    </div>
+    <!-- tippy.js -->
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css" />
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
     <script src="script.js"></script>
   </body>
 </html>
